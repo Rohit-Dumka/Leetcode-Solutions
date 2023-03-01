@@ -20,6 +20,7 @@ first we right shift all the 1's until the binary number will be equivalent to 0
     here we are using and operator i.e. n&1 which gives 1 only when the unit bit is 1 
     and 0 when the unit is zero and count the numbers of 1's by side.
     
+    This is how we count no of 1 bits present in any binary number...
     
 
 
