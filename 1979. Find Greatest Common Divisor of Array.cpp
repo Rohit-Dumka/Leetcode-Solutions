@@ -20,3 +20,20 @@ public:
 };
 // or you can try this to find direct gcd(greatest common divisor)of 2 nums-
 //   use inbuilt gcd() function avail on cpp 
+
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        int size=nums.size();
+        int smallest=INT_MAX;
+        int largest=INT_MIN;
+        for(int i=0;i<size;i++){
+            smallest=min(smallest,nums[i]);
+            largest=max(largest,nums[i]);
+        }
+
+        int x=1;
+        return gcd(smallest,largest);
+        return x;
+    }
+};
