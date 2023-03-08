@@ -41,3 +41,12 @@ public:
 //see the code gets shorter
 //we can optimise it more by performing sorting operation at the start--
 //clean code-->
+
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        sort(nums.begin(), nums.end());//sorting done
+        int x = gcd(nums.front(), nums.back());//since sorted array,therefore find gcd using inbuilt gcd function
+        return x;
+    }
+};
