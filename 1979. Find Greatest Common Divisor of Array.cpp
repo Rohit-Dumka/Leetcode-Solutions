@@ -37,3 +37,7 @@ public:
         return x;
     }
 };
+
+//see the code gets shorter
+//we can optimise it more by performing sorting operation at the start--
+//clean code-->
