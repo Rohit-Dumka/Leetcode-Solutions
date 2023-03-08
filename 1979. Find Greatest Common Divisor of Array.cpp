@@ -18,3 +18,5 @@ public:
         return x;
     }
 };
+// or you can try this to find direct gcd(greatest common divisor)of 2 nums-
+//   use inbuilt gcd() function avail on cpp 
