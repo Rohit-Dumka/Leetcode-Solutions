@@ -4,7 +4,6 @@ public:
 
            //digit=remainder,n=given number
            int product=1,sum=0,digit;
-
            while(n!=0){
                digit=n%10;
                product*=r;
