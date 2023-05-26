@@ -6,6 +6,6 @@ public:
         ans=dividend/ans;
         if(ans>INT_MAX) 
             return INT_MAX;
-        return ans;
+        return (int)ans;
     }
 };
