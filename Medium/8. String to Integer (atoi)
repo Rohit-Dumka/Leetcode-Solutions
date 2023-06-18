@@ -1,0 +1,33 @@
+class Solution {
+    public int myAtoi(String s) {
+        s=s.trim();
+        boolean neg=false;
+        if(s.length()==0)
+            return 0;
+        int num=0,i=0;
+
+        if(s.charAt(0)=='-')
+        {
+            neg=true;
+            i++;
+        }
+        else if (s.charAt(0) == '+') 
+        {
+            i++;
+        }
+        
+        for(;i<s.length();i++)
+        {
+            if(!Character.isDigit(s.charAt(i)))
+                break;
+            int ans=Character.getNumericValue(s.charAt(i));
+            if (num > (Integer.MAX_VALUE - ans) / 10) {
+                return neg ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            }
+            num = num * 10 + ans;
+
+        }
+
+        return neg ? -num : num;
+    }
+}
