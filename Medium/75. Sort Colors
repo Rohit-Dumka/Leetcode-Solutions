@@ -1,0 +1,102 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int i=0,n1=0,n0=0,n2=0;
+        int n=nums.size();
+        int s=0;
+        int e=n-1;
+
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]==1)
+                n1++;
+            else if(nums[i]==0)
+                n0++;
+            else
+                n2++;
+        }
+
+        if(n0>0&&(n1>0||n2>0))
+        {
+        while(s<=e)
+        {
+            if(nums[e]==0 && nums[s]>nums[e])
+            {
+                swap(nums[e],nums[s]);
+                s++;
+                e--;
+            }
+            else if(nums[s]==0 && nums[e]==0)
+            {
+                s++;
+            }
+            else
+            {
+                e--;
+            }
+        }
+        }
+
+        s=0;
+        e=n-1;
+        if(n1>0 && n2>0)
+        {
+        while(s<=e)
+        {
+            if(nums[s]==2 && nums[e]==1)
+            {
+                swap(nums[s],nums[e]);
+                s++;
+                e--;
+            }
+            else if(nums[s]==1&& nums[e]==2)
+            {
+                s++,e--;
+            }
+            else if(nums[s]==2&&  nums[e]==2)
+            {
+                e--;
+            }
+            else
+            {
+                s++;
+            }
+        }
+        }
+        
+    }
+};
+
+
+
+Solution in O(n) ->
+
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int n=nums.size();
+        int s=0;
+        int m=0;
+        int e=n-1;
+
+        while(m<=e)
+        {
+            if(nums[m]==0)
+            {
+                swap(nums[s],nums[m]);
+                s++;
+                m++;
+            }
+            else if(nums[m]==1)
+            {
+                m++;
+            }
+            else 
+            {
+                swap(nums[m],nums[e]);
+                e--;
+            }
+        }
+    }
+};
