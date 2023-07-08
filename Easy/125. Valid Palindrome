@@ -17,8 +17,7 @@ class Solution {
         }
         StringBuilder s3=new StringBuilder(s2);
         s3.reverse();
-        System.out.println(s3 + "\n");
-        System.out.println(s2);
+
         return s2.equals(s3.toString());
     }
 }
@@ -39,8 +38,7 @@ class Solution {
         }
         StringBuilder s3=new StringBuilder(s2);
         s3.reverse();
-        System.out.println(s3 + "\n");
-        System.out.println(s2);
+
         return s2.equalsIgnoreCase(s3.toString());
     }
 }
