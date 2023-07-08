@@ -10,3 +10,53 @@ public:
         return(s==t);
     }
 };
+
+//method 2 --
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.length()!=t.length())
+            return false;
+        const int n=256;
+        int count[n]={0};
+
+        for(int i=0;i<s.length();i++)
+        {
+            count[s[i]]++;
+            count[t[i]]--;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(count[i]!=0)
+                return false;
+        }
+
+        return true;
+    }
+};
+
+//method 3 --
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.length()!=t.length())
+            return false;
+        const int n=26;
+        int count[n]={0};
+
+        for(int i=0;i<s.length();i++)
+        {
+            count[s[i]-'a']++;
+            count[t[i]-'a']--;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(count[i]!=0)
+                return false;
+        }
+
+        return true;
+    }
+};
