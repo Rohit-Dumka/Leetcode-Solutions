@@ -1,0 +1,22 @@
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        int s1=word1.length(),s2=word2.length(),i=0;
+        String ans="";
+        for(i=0;i<s1 && i<s2;i++)
+        {
+            ans+=word1.charAt(i);
+            ans+=word2.charAt(i);
+        }
+        while(i<s1)
+        {
+            ans+=word1.charAt(i);
+            i++;
+        }
+        while(i<s2)
+        {
+            ans+=word2.charAt(i);
+            i++;
+        }
+        return ans;
+    }
+}
