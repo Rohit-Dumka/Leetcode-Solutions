@@ -1,0 +1,33 @@
+//method 1---------------(O(n^2) so TLE------------------------
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans=0;
+        for(int i=0;i<prices.size();i++)
+        {
+            for(int j=i+1;j<prices.size();j++)
+            {
+                    ans=max(ans,prices[j]-prices[i]);
+            }
+        }
+        return ans;
+    }
+};
+
+//method 2------------------------------------------------------
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int minprice=prices[0];
+        int profit=0,ans=0;
+
+        for(int i=0;i<prices.size();i++)
+        {
+            minprice=min(minprice,prices[i]);
+            ans=max(ans,prices[i]-minprice);
+        }
+        return ans;
+    }
+};
