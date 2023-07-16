@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int l=0,ans=INT_MIN,curr=0;
+        if(nums.size()==1)
+            return nums[0];
+        for(int r=0;r<nums.size();r++)
+        {
+            curr+=nums[r];
+            while(l<r &&(nums[l]<0 || nums[r]>curr))
+            {
+                curr-=nums[l];
+                l++;
+            }
+            ans=max(ans,curr);
+        }
+        return ans;
+    }
+};
