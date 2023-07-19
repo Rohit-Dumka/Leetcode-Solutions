@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+       sort(intervals.begin(),intervals.end());
+       int ans=0;
+       int prev=0;
+       for(int curr=1;curr<intervals.size();curr++)
+       {
+           if(intervals[curr][0]<intervals[prev][1]) //[1,5] [3,6] del second
+                                                    //prev    curr
+           {
+               ans++;
+               if(intervals[curr][1]<=intervals[prev][1]) //[1,5] [2,3]  [  ]   (del fist)
+                                                          //      prev    curr
+               {
+                   prev=curr;                              //move prev to next             
+               }
+           }
+           else //incase of no overlapping ,just to move prev
+           {
+               prev=curr;
+           }
+       }
+       return ans;
+    }
+};
