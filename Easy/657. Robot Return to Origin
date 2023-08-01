@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool judgeCircle(string moves) {
+        int a=0,b=0;
+       for(int i:moves)
+       {
+           if(i=='L')
+                a++;
+            if(i=='R')
+                a--;
+            if(i=='U')
+                b++;
+            if(i=='D')
+                b--;
+       }
+       if(a==0 && b==0)
+            return true;
+        return false;
+    }
+};
