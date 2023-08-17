@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int fillCups(vector<int>& amount) {
+        priority_queue<int>maxh(amount.begin(),amount.end());
+
+        int count=0;
+        while(maxh.top()!=0)
+        {
+            int a=maxh.top();
+            maxh.pop();
+            int b=maxh.top();
+            maxh.pop();
+            a--,b--;
+            maxh.push(a);
+            maxh.push(b);
+            count++;
+        }
+        return count;
+    }
+};
