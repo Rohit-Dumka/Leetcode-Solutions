@@ -1,0 +1,21 @@
+class Solution {
+    public String removeOuterParentheses(String s) {
+        int opencount=0,closecount=0;
+        int j=0;
+        String ans="";
+
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='(')
+                opencount++;
+            else
+                closecount++;
+            if(opencount==closecount)
+            {
+                ans+=s.substring(j+1,i);
+                j=i+1;
+            }
+        }
+        return ans;
+    }
+}
