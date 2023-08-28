@@ -36,3 +36,46 @@ public:
         return ans;
     }
 };
+
+
+//hashset----
+class Solution {
+public:
+    int maximumNumberOfStringPairs(vector<string>& words) {
+        unordered_set<string>s;
+        int ans=0;
+
+        for(auto i:words)
+        {
+            string rev=i;
+            reverse(rev.begin(),rev.end());
+            if(s.find(rev)==s.end())
+                s.insert(i);
+            else
+                ans++;
+        }
+        return ans;
+    }
+};
+
+//working of hashset--
+
+class Solution {
+public:
+    int maximumNumberOfStringPairs(vector<string>& words) {
+        unordered_set<string>s;
+        int ans=0;
+
+        for(auto i:words)
+        {
+            string rev=i;
+            reverse(rev.begin(),rev.end());
+            if(!(s.find(rev)==s.end())) 
+//find returns false if not found so basically we are just inserting in our set if not found and if found then incrementing our size counter
+//or we can just inc the found count by 1 which is our answer.
+                ans++;
+            s.insert(i);
+        }
+        return ans;
+    }
+};
