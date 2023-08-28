@@ -16,3 +16,36 @@ public:
         return ans;
     }
 };
+
+//2nd 
+
+class Solution {
+public:
+    int countPoints(string rings) {
+        int rc[10]={0};
+        int gc[10]={0};
+        int bc[10]={0};
+
+        int ans=0;
+        for(int i=0;i<rings.size();i+=2)
+        {
+            char color=rings[i];
+            int index=rings[i+1]-'0';
+
+            if(color=='R')
+                rc[index]++;
+            else if(color=='G')
+                gc[index]++;
+            else if(color=='B')
+                bc[index]++;
+        }
+
+        for(int i=0;i<10;i++)
+        {
+            if(rc[i]>0 && gc[i]>0 && bc[i]>0)
+                ans++;
+        }
+        return ans;
+    }
+};
+
