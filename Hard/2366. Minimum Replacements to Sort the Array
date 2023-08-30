@@ -1,0 +1,22 @@
+class Solution {
+public:
+    long long minimumReplacement(vector<int>& nums) {
+        if(nums.size()<=1)
+            return 0;
+            
+        int next=nums[nums.size()-1];
+        long ans=0;
+        for(int i=nums.size()-2;i>=0;i--){
+            if(nums[i]>next){
+                int times=nums[i]/next;
+                if(nums[i]%next)
+                    times++;
+                next=nums[i]/times;
+                ans+=(times-1);
+            }else{
+                next=nums[i];
+            }
+        }
+        return ans;
+    }
+};
