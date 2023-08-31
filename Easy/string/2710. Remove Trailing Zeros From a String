@@ -1,0 +1,13 @@
+class Solution {
+public:
+    string removeTrailingZeros(string num) {
+        int e=num.size()-1;
+
+        while(e>=0){
+            if(num[e]!='0')
+                break;
+            e--;
+        }
+        return num.substr(0,e+1);
+    }
+};
