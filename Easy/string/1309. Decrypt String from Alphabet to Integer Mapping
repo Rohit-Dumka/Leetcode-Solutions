@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string freqAlphabets(string s) {
+        unordered_map<string,char>m;
+        char c='a';
+        for(int i=1;i<=26;i++){
+            if(i<=9){
+                m[to_string(i)]=c++;
+            }
+            if(i>9){
+                m[to_string(i)+'#']=c++;
+            }
+        }
+        string ans="";
+
+        for(int i=s.size()-1;i>=0;i--){
+            if(s[i]=='#')
+            {
+                string temp="";
+                temp+=s[i-2];
+                temp+=s[i-1];
+                temp+=s[i];
+                i-=2;
+                ans+=m[temp];
+            }
+            else{
+                ans+=m[string(1,s[i])];
+            }
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
