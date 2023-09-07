@@ -1,0 +1,11 @@
+class Solution {
+public:
+    bool squareIsWhite(string coordinates) {
+        if((coordinates[0]&1)==1 && (coordinates[1]&1)==0)
+            return true;
+        else if((coordinates[0]&1)==0 && (coordinates[1]&1)==1)
+            return true;
+        else
+            return false;
+    }
+};
