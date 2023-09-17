@@ -21,3 +21,23 @@ public:
     }
 };
 
+//-----------------------------------------------------------------------------
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int ans=0,count=0;
+        set<char>ss;
+        int l=0;
+
+        for(int r=0;r<s.size();r++){
+            while(ss.find(s[r])!=ss.end()){
+                ss.erase(s[l]);
+                l++;
+            }
+            ss.insert(s[r]);
+            ans=max(ans,r-l+1);
+        }
+    return ans;
+    }
+};
