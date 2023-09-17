@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int ans=0;
+        string temp="";
+        int count=0;
+        
+        for(int i=0;i<s.size();i++){
+            if(temp.find(s[i])==string :: npos){
+                temp+=s[i];
+                count++;
+                ans=max(ans,count);
+            }
+            else{
+                i=i-count;
+                count=0;
+                temp="";
+            }
+        }
+    return ans;
+    }
+};
+
