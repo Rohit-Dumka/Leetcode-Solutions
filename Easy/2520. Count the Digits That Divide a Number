@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int findCount(int n){
+        int ans=0;
+        int x=n;
+        while(n>0){
+            int r=n%10;
+            if(x%r==0)
+                ans++;
+            n/=10;
+        }
+        return ans;
+    }
+    int countDigits(int num) {
+        int ans=findCount(num);
+        return ans;
+    }
+};
