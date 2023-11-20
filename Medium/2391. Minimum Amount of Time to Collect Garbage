@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
+
+        vector<int>prefix(travel.size());
+        prefix[0]=travel[0];
+
+        for(int i=1;i<prefix.size();i++){
+            prefix[i]=prefix[i-1]+travel[i];
+        }
+
+        int ans=0,g=0,m=0,p=0;
+
+        for(int i=0;i<garbage.size();i++){
+            string str=garbage[i];
+            for(char x: str){
+                if(x=='G')g=i;
+                if(x=='M')m=i;
+                if(x=='P')p=i;
+            }
+            ans+=str.size(); //picking time
+        }
+        if(g>=1)ans+=prefix[g-1];
+        if(m>=1)ans+=prefix[m-1];
+        if(p>=1)ans+=prefix[p-1];
+
+        return ans;
+    }
+};
