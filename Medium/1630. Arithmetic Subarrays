@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool check(int s,int e,vector<int>nums){
+
+        vector<int>temp(nums.begin()+s,nums.begin()+e+1);
+
+        sort(temp.begin(),temp.end());
+
+        cout<<endl;
+        for(int i=2;i<temp.size();i++){
+            if((temp[1]-temp[0]) != (temp[i]-temp[i-1]))
+                return false;
+        }
+        return true;
+    }
+    vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
+        vector<bool>ans;
+        for(int i=0;i<l.size();i++){
+            bool flag = check(l[i],r[i],nums);
+            if(flag)
+                ans.push_back(true);
+            else
+                ans.push_back(false);
+        }
+        return ans;
+    }
+};
