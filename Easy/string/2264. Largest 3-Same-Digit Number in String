@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string largestGoodInteger(string num) {
+        int temp = INT_MIN;
+        bool flag = false;
+        for(int i=0;i<num.size()-2;i++){
+            int x=0;
+            if(num[i]==num[i+1] && num[i]==num[i+2])
+            {
+                string s = num.substr(i,3);
+                x = stoi(s);
+                flag = true;
+            }
+            temp=max(temp,x);
+        }
+
+        string ans = "";
+        if (temp == 0)
+            ans = "000";
+        else
+            ans = to_string(temp);
+
+        if(flag)
+            return ans;
+        else
+            return "";
+    }
+};
