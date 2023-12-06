@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int totalMoney(int n) {
+        int ans=0,x=1; //x -> monday
+
+        while(n>0){
+            if(n>=7){
+                for(int i=x;i<x+7;i++)
+                    ans+=i;
+                x++;
+                n=n-7;
+            }
+            else{
+                for(int i=x; i<x+n;i++)
+                    ans+=i;
+                n=0;
+            }
+        }      
+        return ans;
+    }
+};
