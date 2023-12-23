@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isPathCrossing(string path) {
+        set<string>s;
+
+        int x=0,y=0;
+
+        s.insert(to_string(x) + "," + to_string(y));
+
+        for(int i=0;i<path.size();i++){
+            char c=path[i];
+            if(c=='N')y++;
+            if(c=='S')y--;
+            if(c=='E')x++;
+            if(c=='W')x--;
+            
+            string str = to_string(x) + "," + to_string(y);
+            if(s.find(str)!=s.end()) return true;
+            else s.emplace(str);
+        }
+        return false;
+    }
+};
