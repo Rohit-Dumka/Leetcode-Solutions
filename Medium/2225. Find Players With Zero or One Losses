@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<vector<int>> findWinners(vector<vector<int>>& matches) {
+        map<int,int>m;
+        for(int i=0;i<matches.size();i++){
+            m[matches[i][1]]++;
+        }
+        vector<int>win;
+        vector<int>lose;
+        for(int i=0;i<matches.size();i++){
+            if(m[matches[i][1]]==1)
+                lose.push_back(matches[i][1]);
+            if(m.find(matches[i][0])==m.end()){
+                win.push_back(matches[i][0]);
+                m[matches[i][0]]=2;
+            }
+        }
+        sort(win.begin(),win.end());
+        sort(lose.begin(),lose.end());
+
+        return {win,lose};
+    }
+};
