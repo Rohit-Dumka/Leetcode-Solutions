@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
 public:
     bool valid(TreeNode* root,long long min_val,long long max_val){
@@ -17,6 +18,7 @@ public:
 
         return valid(root->left,min_val,root->val) && valid(root->right,root->val,max_val);
     }
+
     bool isValidBST(TreeNode* root) {
         if(root==NULL) return true;
         return valid(root,LLONG_MIN,LLONG_MAX);
