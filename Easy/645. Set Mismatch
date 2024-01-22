@@ -42,3 +42,25 @@ public:
     }
 };
 
+//----------------------------------------------------------------------------
+//-----------------------------------Maps-------------------------------------
+
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n=nums.size();
+        unordered_map<int,int>m;
+        for(int i=1;i<=n;i++)m[i]++;
+
+        for(auto i:nums)m[i]--;
+
+        int dup=0,miss=0;
+
+        for(auto i:m){
+            if(i.second==-1)dup=i.first;
+            if(i.second==1)miss=i.first;
+        }
+
+        return {dup,miss};
+    }
+};
