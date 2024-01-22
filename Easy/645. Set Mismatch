@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n=nums.size();
+        int expectedSum=n*(n+1)/2;
+        int currentSum=0,uniqueSum=0;
+
+        for(int i:nums) currentSum+=i;
+        
+        set<int>s(nums.begin(),nums.end());
+        for(auto i:s) uniqueSum+=i;
+
+        int repeated=currentSum-uniqueSum;
+        int missing=expectedSum-uniqueSum;
+
+        return {repeated,missing};
+    }
+};
