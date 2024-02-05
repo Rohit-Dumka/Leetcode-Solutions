@@ -17,3 +17,22 @@ public:
         else return dp[i]=ans(i+1,s);
     }
 };
+
+
+//-----------------------recursion--------------------
+//-------------------memory limit exceeded------------
+
+class Solution {
+public:
+    int numDecodings(string s) {
+        return ans(0,s);
+    }
+    int ans(int i,string s){
+        if(i>=s.size()) return 1;
+        else if(s[i]=='0') return 0;
+        else if(i==s.size()-1) return 1; 
+        else if(s[i]=='1' || (s[i]=='2' && (s[i+1]>=48 && s[i+1]<=54)))
+            return ans(i+1,s)+ans(i+2,s);
+        else return ans(i+1,s);
+    }
+};
