@@ -1,0 +1,18 @@
+class Solution {
+public:
+    long long sumNums(vector<int>&nums){
+        long long ans=0;
+        for(auto i:nums) ans+=i;
+        return ans;
+    }
+    long long largestPerimeter(vector<int>& nums) {
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
+        long long ans=sumNums(nums);
+        for(int i=n-1;i>=2;i--){
+            if(ans-nums[i]>nums[i])return ans;
+            ans-=nums[i];
+        }
+        return -1;
+    }
+};
