@@ -1,0 +1,14 @@
+vector<int> find(TreeNode* root,vector<int>&ans){
+  if(!root || (!root->left && !root->right) return;
+
+  if(!root->left) ans.push_back(root->right->val);
+  if(!root->right) ans.push_back(root->left->val);
+  find(root->left,ans);
+  find(root->right,ans);
+}
+
+vector<int> getLonelyNOdes(TreeNode* root){
+  vector<int>ans;
+  find(root,ans);
+  return ans;
+}
