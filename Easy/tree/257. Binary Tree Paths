@@ -1,0 +1,26 @@
+//good question must be a medium
+
+class Solution {
+public:
+    void find(TreeNode* root, vector<string>&ans, string &temp){
+        temp+="->" + to_string(root->val);
+
+        if(root->left==NULL && root->right==NULL){
+            ans.push_back(temp);
+            return;
+        }
+        if(root->left!=NULL)find(root->left,ans,temp);
+        if(root->right!=NULL)find(root->right,ans,temp);
+    }
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string>ans;
+        if(root==NULL) return ans;
+        string temp=to_string(root->val);
+
+        if(root->left==NULL && root->right==NULL) ans.push_back(temp);
+        if(root->left!=NULL) find(root->left,ans,temp);
+        if(root->right!=NULL) find(root->right,ans,temp);
+        
+        return ans;
+    }
+};
